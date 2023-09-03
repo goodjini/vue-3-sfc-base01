@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import TweetPostForm from "./TweetPostForm.vue";
+import TweetList from "./TweetList.vue";
 
 const tweets = ref([
   { id: 0, description: 'Hellow, world!' },
@@ -36,10 +37,11 @@ const deleteTweet = (id: number) => {
     <div class="tweet-container">
       <p v-if ="tweets.length <= 0">No tweets hav been added.</p>
       <ul v-else>
-        <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
+        <TweetList />
+        <!-- <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
           <span>{{ tweet.description }}</span>
           <button class="delete-button" @click="deleteTweet(tweet.id)">delete</button>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
