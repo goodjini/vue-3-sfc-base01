@@ -1,13 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
-const tweets: any = [];
+import { defineProps, ref } from "vue";
+type Tweet = {
+  id: number,
+  description: string,
+};
+type Props = {
+  tweetsProps: Tweet[],
+}
+defineProps<Props>()
+
 const deleteTweet = (id: any) => {
 
 }
 </script>
 
 <template>
-  <li v-for="tweet in tweets" :key="tweet.id" class="tweet-list">
+  <li v-for="tweet in tweetsProps" :key="tweet.id" class="tweet-list">
     <span>{{ tweet.description }}</span>
     <button class="delete-button" @click="deleteTweet(tweet.id)">delete</button>
   </li>
@@ -15,16 +23,16 @@ const deleteTweet = (id: any) => {
 
 <style scope>
 .delete-button {
-  color: #fff;
+  color: #fcfbf9;
   font-weight: bold;
-  background-color: #d28383;
+  background-color: #7ee592;
   border-radius: 2px;
   border: none;
   width: 60px;
   height: 22px;
 }
 .delete-button:hover {
-  background-color: #b65d5d;
+  background-color: #6fa848;
 }
 
 .tweet-list {
@@ -36,6 +44,6 @@ const deleteTweet = (id: any) => {
   font-size: 12px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(174, 208, 238);
+  background-color: rgb(148, 150, 151);
 }
 </style>  
