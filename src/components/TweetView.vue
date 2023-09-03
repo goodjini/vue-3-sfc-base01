@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import TweetPostForm from "./TweetPostForm.vue";
 
 const tweets = ref([
   { id: 0, description: 'Hellow, world!' },
@@ -28,8 +29,9 @@ const deleteTweet = (id: number) => {
   <div class="container">
     <h1>Tweeter</h1>
     <div class="form-container">
-      <input v-model="inputingDescription"/>
-      <button class="save-button" @click="postTweet()">post</button>
+      <TweetPostForm />
+      <!-- <input v-model="inputingDescription"/>
+      <button class="save-button" @click="postTweet()">post</button> -->
     </div>
     <div class="tweet-container">
       <p v-if ="tweets.length <= 0">No tweets hav been added.</p>
@@ -70,6 +72,9 @@ const deleteTweet = (id: number) => {
   width: 60px;
   height: 22px;
 }
+.save-button:hover {
+  background-color: #37bdbd;
+}
 .delete-button {
   color: #fff;
   font-weight: bold;
@@ -78,6 +83,9 @@ const deleteTweet = (id: number) => {
   border: none;
   width: 60px;
   height: 22px;
+}
+.delete-button:hover {
+  background-color: #b65d5d;
 }
 
 .tweet-list {
